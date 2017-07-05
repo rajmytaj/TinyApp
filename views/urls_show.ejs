@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
   </head>
 
 <body>
   <header>
     <% include ./partials/_header.ejs %>
   </header>
-  <p>
-  shortURL: <%= shortURL%>
-  </p>
-  <form>
-
-  </form>
+  <h3>
+    shortURL: <%= shortURL%>
+    <form method="POST" action="/urls/<%=shortURL%>">
+      <input type="text" name="URL"/>
+        <button>
+          Update
+        </button>
+    </form>
 </body>
 </html>

@@ -52,6 +52,10 @@ app.post("/urls/:id/delete", (req, res) => {
   delete urlDatabase[req.params.id]
   res.redirect("/urls");
 });
+app.post("/urls/:id", (req, res) => {
+  urlDatabase[req.params.id] = req.body.URL;
+  res.redirect("/urls");
+});
 
 app.get("/urls", (req, res) => {
   let templateVars = {url: urlDatabase};
