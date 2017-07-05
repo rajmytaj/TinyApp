@@ -48,7 +48,10 @@ app.post("/urls", (req, res) => {
   res.redirect(`urls/${ shortURL }`);
 
 });
-
+app.post("/urls/:id/delete", (req, res) => {
+  delete urlDatabase[req.params.id]
+  res.redirect("/urls");
+});
 
 app.get("/urls", (req, res) => {
   let templateVars = {url: urlDatabase};
