@@ -9,6 +9,7 @@
     <div>
       <%= `${key} --> ${url[key]}` %>
       <form method="POST" action="/urls/<%=key%>/delete" style="display:inline-block">
+        <a href="<%=`/urls/${key}`%>"> Edit </a>
         <button>delete <i class="fa fa-trash-o" aria-hidden="true"></i></button>
       </form>
     </div>
