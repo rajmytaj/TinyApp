@@ -2,11 +2,16 @@
 <html lang="en">
 <head>
   <title>TinyApp</title>
+  <script src="https://use.fontawesome.com/3770941ad6.js"></script>
 </head>
 <body>
     <!-- <%= `${url['b2xVn2']}` %> -->
     <% for(const key in url) { %>
-      <li> <%= `${key} : ${url[key]}` %> </li>
+      <p> <%= `${key} --> ${url[key]}` %> </p>
+      <form method="POST" action="/urls/<%=key%>/delete">
+        <button>delete <i class="fa fa-trash-o" aria-hidden="true"></i></button>
+      </form>
       <% } %>
+      <!-- <form method="POST" action="/urls/9sm5xK/delete"><button type> delete</button></form> -->
 </body>
 </html>
