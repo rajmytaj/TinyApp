@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head></head>
-  <body style="font-size:20px; padding:50px;">
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Josefin+Sans" rel="stylesheet">
+    <!-- <link rel="stylesheet" type="text/css" href="css/styles.css"> -->
+    <style>
+      body {
+        font-family: 'Josefin Sans', sans-serif;;
+        /*background-color: pink;*/
+        background-image:url('http://www.imgbase.info/images/safe-wallpapers/miscellaneous/simple/13265_simple_green_panda_panda.jpg');
+        background-repeat:no-repeat;
+        background-size: 100% 420%;
+      }
+      #title {
+        font-family: 'Indie Flower', cursive;
+      }
+    </style>
+  </head>
+  <body>
     <% include partials/_header %>
-    <form action="/urls" method="POST" style="margin:150px;">
-      <label for="longURL">Enter a URL:</label>
-      <input id="longURL" type="text" name="longURL" placeholder="http://" style="width: 300px">
-      <input type="submit" value="Submit">
-    </form>
+    <div id='wrapper' style="text-align: center">
+      <div id='nav-div' style="display:inline-block">
+        <form action="/urls" method="POST">
+          <label for="longURL">Enter URL Here:</label>
+          <input id="longURL" type="text" name="longURL" placeholder="http://" style="width: 300px">
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+    </div>
   </body>
 </html>

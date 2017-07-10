@@ -2,23 +2,56 @@
 <html lang="en">
 <head>
   <title>TinyApp</title>
-  <script src="https://use.fontawesome.com/3770941ad6.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Josefin+Sans" rel="stylesheet">
+  <!-- <link rel="stylesheet" type="text/css" href="css/styles.css"> -->
+  <style>
+    body {
+      background-color: #00B650;
+      font-family: 'Josefin Sans', sans-serif;
+    }
+    #title {
+      font-family: 'Indie Flower', cursive;
+    }    
+  </style>
 </head>
-<body>
-  <header>
-    <% include ./partials/_header.ejs %>
-  </header>
-  <% for(const key in url) { %>
-    <div>
-      <%= `${key} --> ${url[key]}` %>
-      <form method="POST" action="/urls/<%=key%>/delete" style="display:inline-block">
-        <a href="<%=`/urls/${key}`%>"> Edit </a>
-        <button>delete <i class="fa fa-trash-o" aria-hidden="true"></i></button>
-      </form>
-    </div>
-    <br/>
-  <% } %>
-
-      <!-- <form method="POST" action="/urls/9sm5xK/delete"><button type> delete</button></form> -->
+<body style="font-size:20px; padding:100px; text-align:center">
+  <% include ./partials/_header%>
+  <div id='wrapper' style="text-align: center">
+    <div id='nav-div' style="display:inline-block">
+      <table style= "margin-top: 40px">
+          <% if(user){ %>
+            <% for(let userId in urls){ %>
+              <% if(user.id === userId){ %>
+                <thead>
+                  <tr>
+                    <th>
+                      Tiny Link
+                    </th>
+                    <th>
+                      Original URL
+                    </th>
+                    <th>
+                      Actions
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% for(let shortURL in urls[userId]){ %>
+                  <tr>
+                    <td><a href="/u/<%= shortURL %>">http://tiny.app/u/<%=shortURL%></a></td>
+                    <td><%= urls[userId][shortURL]%></td>
+                    <td>
+                      <a href="/urls/<%= shortURL%>" style="color: #d8e2e8;"><button>Edit</button></a>
+                      <form method="POST" action="/urls/<%= shortURL %>/delete" style="display: inline-block;">
+                        <input type="submit" value="Delete">
+                      </form>
+                    </td>
+                  </tr>
+                  <%}%>
+                </tbody>
+              <%}%>
+            <%}%>
+          <%}%>
+      </table>
 </body>
 </html>

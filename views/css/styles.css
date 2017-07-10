@@ -1,0 +1,9 @@
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  background-image:url('http://www.imgbase.info/images/safe-wallpapers/miscellaneous/simple/13265_simple_green_panda_panda.jpg');
+  background-repeat:no-repeat;
+  background-size: 100% 160%;
+}
+#title {
+  font-family: 'Indie Flower', cursive;
+}

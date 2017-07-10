@@ -1,9 +1,37 @@
-<h2>Login</h2>
-  <form method="POST" action="/login">
-    <input type="email" name="email" placeholder="email"/>
-    <input type="password" name="password" placeholder="password"/>
-      <button>
-        Login
-      </button>
-  </form>
-  <a href="/register">Make an account</a>
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Josefin+Sans" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <style>
+    body {
+      background-size: 100% 320%;
+    }
+  </style>
+</head>
+<body>
+  <% include partials/_header %>
+  <div id='wrapper' style="text-align: center">
+    <div id='nav-div' style="display:inline-block">
+    <table>
+      <form action="/login" method="POST" style="margin:150px;">
+        <tr>
+          <th>
+            <label for="email">Email:</label>
+            <input id="email" type="email" name="email" placeholder="example@gmail.com" style="width: 300px">
+          </th>
+        </tr>
+        <tr>
+          <th>
+            <label for="password">Password:</label>
+            <input id="password" type="password" name="password" style="width: 300px">
+            <input style="display: block; text-align: center" type="submit" value="Submit">
+          </th>
+        </tr>
+      </form>
+    </table>
+    </div>
+  </div>
+
+</body>
+</html>

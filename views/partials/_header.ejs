@@ -1,11 +1,25 @@
-<html lang="en">
-		<div>
-			<% if (username) { %>
-        <form method="POST" action="/logout">
-        <input type="submit" value="LOGOUT"></form>
-      <% } else { %>
-					<a href="/login">Login</a>
-					<a href="/register">Register</a>
-      <% } %>
+<header>
+    <div id='wrapper' style="text-align: center">
+			<div id='nav-div' style="display:inline-block">
+	      <%if(user){%>
+	        <span>Welcome <%=user.email%></span>
+	        <form action="/logout" method="POST" style= "display: inline-block;">
+	          <input type='submit' value='Logout'/>
+	        </form>
+	      <%}else{%>
+	        <a class='log_reg' href ="/login">Login</a>
+	        <a class='log_reg' href="/register">Register</a>
+	      <%}%>
+	    </div >
+	    <div>
+	      <h1 id='title'>
+	        TINY APP
+	      </h1>
+	    </div>
+	    <div>
+	      <a href="/">Home</a>
+				<a href="/urls/new">Shorten New URL</a>
+	    </div>
 		</div>
-</html>
+	</div>
+</header>
