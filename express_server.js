@@ -185,6 +185,24 @@ app.get("/urls/:id", (req, res) => {
   }
 });
 
+app.get("/urls/:id", (req, res) => {
+  if(req.session.user_id !== null){
+    if(urlDatabase[req.session.user_id][req.params.id] === undefined){
+      res.send("This shortURL belongs to someone else or doesn't exist!");
+    }else{
+      const shortURL = req.params.id;
+      let templateVars = {
+        user: users[req.session.user_id],
+        shortURL: shortURL,
+        longURL: urlDatabase[req.session.user_id][shortURL]
+      };
+      res.render("urls_show", templateVars);
+    }
+  }else{
+    res.send("Please log in!");
+  }
+});
+
 //post requests////////////////////////////////////////
 
 //new user registration
@@ -221,24 +239,6 @@ app.post("/urls", (req, res) => {
     }
     // console.log(urlDatabase);
     res.redirect(`/urls/${random_id}`);
-  }
-});
-
-app.get("/urls/:id", (req, res) => {
-  if(req.session.user_id !== null){
-    if(urlDatabase[req.session.user_id][req.params.id] === undefined){
-      res.send("This shortURL belongs to someone else or doesn't exist!");
-    }else{
-      const shortURL = req.params.id;
-      let templateVars = {
-        user: users[req.session.user_id],
-        shortURL: shortURL,
-        longURL: urlDatabase[req.session.user_id][shortURL]
-      };
-      res.render("urls_show", templateVars);
-    }
-  }else{
-    res.send("Please log in!");
   }
 });
 
